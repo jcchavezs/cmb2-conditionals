@@ -7,7 +7,7 @@
  * Author URI: http://github.com/jcchavezs
  * Github Plugin URI: https://github.com/jcchavezs/cmb2-conditionals
  * Github Branch: master
- * Version: 1.0.1
+ * Version: 1.0.2
 */
 
 function cmb2_conditionals_footer()
@@ -18,7 +18,7 @@ function cmb2_conditionals_footer()
     	return;
     }
 
-	wp_enqueue_script('cmb2-conditionals', plugins_url('/cmb2-conditionals.js', __FILE__ ), array('jquery'), '1.0.1', true);
+	wp_enqueue_script('cmb2-conditionals', plugins_url('/cmb2-conditionals.js', __FILE__ ), array('jquery'), '1.0.2', true);
 }
 
 add_action('admin_footer', 'cmb2_conditionals_footer', 99999);
