@@ -10,15 +10,57 @@
  * Version: 1.0.2
 */
 
+define('CMB2_CONDITIONALS_PRIORITY', 99999);
+
+/**
+ * Decides whether include the scripts or not.
+ */
 function cmb2_conditionals_footer()
 {
-	global $post, $pagenow;
+	global $pagenow;
 
-    if(null === $post || !in_array($pagenow, array('post-new.php', 'post.php'))) {
+    if(!in_array($pagenow, array('post-new.php', 'post.php'))) {
     	return;
     }
 
 	wp_enqueue_script('cmb2-conditionals', plugins_url('/cmb2-conditionals.js', __FILE__ ), array('jquery'), '1.0.2', true);
 }
 
-add_action('admin_footer', 'cmb2_conditionals_footer', 99999);
+add_action('admin_footer', 'cmb2_conditionals_footer', CMB2_CONDITIONALS_PRIORITY);
+
+function cmb2_conditionals_hook_fields_filtering()
+{
+	$cmb2_boxes = CMB2_Boxes::get_all();
+
+	foreach($cmb2_boxes as $cmb_id => $cmb2_box) {
+		add_action("cmb2_{$cmb2_box->object_type()}_process_fields_{$cmb_id}", 'cmb2_conditional_filter_data_to_save', CMB2_CONDITIONALS_PRIORITY, 2);
+	}
+}
+
+add_action('admin_init', 'cmb2_conditionals_hook_fields_filtering', CMB2_CONDITIONALS_PRIORITY);
+
+function cmb2_conditional_filter_data_to_save(CMB2 $cmb2, $object_id)
+{
+	foreach ( $cmb2->prop( 'fields' ) as $field_args ) {
+		if(!(array_key_exists('attributes', $field_args) && array_key_exists('data-conditional-id', $field_args['attributes']))) {
+			continue;
+		}
+
+		$field_id = $field_args['id'];
+		$conditional_id = $field_args['attributes']['data-conditional-id'];
+
+		if(
+			array_key_exists('data-conditional-value', $field_args['attributes'])
+			&&
+			$cmb2->data_to_save[$conditional_id] != $field_args['attributes']['data-conditional-value']
+		) {
+			unset($cmb2->data_to_save[$field_id]);
+			continue;
+		}
+
+		if(!$cmb2->data_to_save[$conditional_id]) {
+			unset($cmb2->data_to_save[$field_id]);
+			continue;
+		}
+	}
+}
