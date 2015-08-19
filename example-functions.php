@@ -109,7 +109,7 @@ function yourprefix_register_demo_metabox() {
 			'one' => 'Reason 1',
 			'two' => 'Reason 2',
 			'three' => 'Reason 3',
-			'other_price' => 'Other reason based on the price'
+			'other_price' => 'Other reason based on the price',
 			'other_quality' => 'Other reason based on the quality'
 		),
 	) );
@@ -117,7 +117,7 @@ function yourprefix_register_demo_metabox() {
 	$cmb_demo->add_field( array(
 		'name' => 'Other reason detail',
 		'desc' => 'Write down the reason',
-		'id'   => $prefix . 'other_reason_detail',
+		'id'   => $prefix . 'other_reason_detail_2',
 		'type' => 'textarea',
 		'attributes' => array(
 			'required' => true, // Will be required only if visible.
