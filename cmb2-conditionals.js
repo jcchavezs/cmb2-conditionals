@@ -11,10 +11,10 @@ jQuery(document).ready(function($) {
 				id = $e.data('conditional-id'),
 				value = $e.data('conditional-value');
 
-			var	$element = $('#' + id),
+			var	$element = $('[name="' + id + '"]'),
 				$parent = $e.parents('.cmb-row:first').hide();
 
-			$e.data('conditional-required', $e.prop('required'));
+			$e.data('conditional-required', $e.prop('required')).prop('required', false);
 
 			$element
 				.on('change', function(evt){
@@ -29,7 +29,11 @@ jQuery(document).ready(function($) {
 					}
 				});
 
-			$element.trigger('change');
+			if($element.length === 1) {
+				$element.trigger('change');
+			} else {
+				$element.filter(':checked').trigger('change');
+			}
 		});
 	}
 

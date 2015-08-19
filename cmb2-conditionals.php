@@ -28,7 +28,10 @@ function cmb2_conditionals_footer()
 
 add_action('admin_footer', 'cmb2_conditionals_footer', CMB2_CONDITIONALS_PRIORITY);
 
-function cmb2_conditionals_hook_fields_filtering()
+/**
+ * Hooks the filtering of the data being saved.
+ */
+function cmb2_conditionals_hook_data_to_save_filtering()
 {
 	$cmb2_boxes = CMB2_Boxes::get_all();
 
@@ -37,8 +40,11 @@ function cmb2_conditionals_hook_fields_filtering()
 	}
 }
 
-add_action('admin_init', 'cmb2_conditionals_hook_fields_filtering', CMB2_CONDITIONALS_PRIORITY);
+add_action('admin_init', 'cmb2_conditionals_hook_data_to_save_filtering', CMB2_CONDITIONALS_PRIORITY);
 
+/**
+ * Filters the data to remove those values which are not suppose to be enabled to edit according to the declared conditionals.
+ */
 function cmb2_conditional_filter_data_to_save(CMB2 $cmb2, $object_id)
 {
 	foreach ( $cmb2->prop( 'fields' ) as $field_args ) {

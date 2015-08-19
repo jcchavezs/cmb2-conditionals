@@ -125,4 +125,35 @@ function yourprefix_register_demo_metabox() {
 			'data-conditional-value' => json_encode(array('other_price', 'other_quality'))
 		)
 	) );
+
+	$cmb_demo->add_field( array(
+		'name'             => 'Sizes',
+		'id'               => $prefix . 'sizes',
+		'type'             => 'radio',
+		'show_option_none' => true,
+		'options'          => array(
+		    'xs' => 'XS',
+		    's' => 'S',
+		    'm'   => 'M',
+		    'l'     => 'L',
+		    'xl'     => 'XL',
+		    'custom'   => 'Custom'
+		),
+		'attributes' => array(
+			 'required'    => 'required',
+		)
+	) );
+
+	$cmb_demo->add_field( array(
+		'name' => 'Custom description',
+		'desc' => 'Write a description for your custom size',
+		'id'   => $prefix . 'size_custom_description',
+		'type' => 'textarea',
+		'required' => true,
+		'attributes' => array(
+			'required' => true, // Will be required only if visible.
+			'data-conditional-id' => $prefix . 'sizes',
+			'data-conditional-value' => 'custom',
+		)
+	) );
 }
