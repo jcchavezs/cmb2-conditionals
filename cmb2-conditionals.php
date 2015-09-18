@@ -7,7 +7,7 @@
  * Author URI: http://github.com/jcchavezs
  * Github Plugin URI: https://github.com/jcchavezs/cmb2-conditionals
  * Github Branch: master
- * Version: 1.0.3
+ * Version: 1.0.4
 */
 
 define('CMB2_CONDITIONALS_PRIORITY', 99999);
