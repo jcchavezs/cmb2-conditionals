@@ -10,7 +10,19 @@
  * Version: 1.0.4
 */
 
-define('CMB2_CONDITIONALS_PRIORITY', 99999);
+add_action('plugins_loaded', 'cmb2_conditionals_load_actions');
+
+function cmb2_conditionals_load_actions()
+{
+	if(!defined('CMB2_LOADED') || false === CMB2_LOADED) {
+		return;
+	}
+
+	define('CMB2_CONDITIONALS_PRIORITY', 99999);
+
+	add_action('admin_init', 'cmb2_conditionals_hook_data_to_save_filtering', CMB2_CONDITIONALS_PRIORITY);
+	add_action('admin_footer', 'cmb2_conditionals_footer', CMB2_CONDITIONALS_PRIORITY);
+}
 
 /**
  * Decides whether include the scripts or not.
@@ -26,8 +38,6 @@ function cmb2_conditionals_footer()
 	wp_enqueue_script('cmb2-conditionals', plugins_url('/cmb2-conditionals.js', __FILE__ ), array('jquery'), '1.0.2', true);
 }
 
-add_action('admin_footer', 'cmb2_conditionals_footer', CMB2_CONDITIONALS_PRIORITY);
-
 /**
  * Hooks the filtering of the data being saved.
  */
@@ -39,8 +49,6 @@ function cmb2_conditionals_hook_data_to_save_filtering()
 		add_action("cmb2_{$cmb2_box->object_type()}_process_fields_{$cmb_id}", 'cmb2_conditional_filter_data_to_save', CMB2_CONDITIONALS_PRIORITY, 2);
 	}
 }
-
-add_action('admin_init', 'cmb2_conditionals_hook_data_to_save_filtering', CMB2_CONDITIONALS_PRIORITY);
 
 /**
  * Filters the data to remove those values which are not suppose to be enabled to edit according to the declared conditionals.
