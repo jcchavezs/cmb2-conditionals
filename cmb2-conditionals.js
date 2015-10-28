@@ -1,6 +1,6 @@
-'use strict';
-
 jQuery(document).ready(function($) {
+	'use strict';
+	
 	function CMB2ConditionalsInit(context) {
 		if(typeof context === 'undefined') {
 			context = 'body';
