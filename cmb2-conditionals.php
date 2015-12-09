@@ -21,18 +21,16 @@ function cmb2_conditionals_load_actions()
 	define('CMB2_CONDITIONALS_PRIORITY', 99999);
 
 	add_action('admin_init', 'cmb2_conditionals_hook_data_to_save_filtering', CMB2_CONDITIONALS_PRIORITY);
-	add_action('wp_enqueue_scripts', 'cmb2_conditionals_footer', CMB2_CONDITIONALS_PRIORITY);
 }
 
+add_action('admin_enqueue_scripts', 'cmb2_conditionals_footer', CMB2_CONDITIONALS_PRIORITY);
 /**
  * Decides whether include the scripts or not.
  */
-function cmb2_conditionals_footer()
+function cmb2_conditionals_footer($hook)
 {
-	global $pagenow;
-
-  if(!in_array($pagenow, array('post-new.php', 'post.php'))) {
-  	return;
+  if( $hook != 'post.php' && $hook != 'post-new.php' ){
+    return;
   }
 
   $dir = trailingslashit( dirname( __FILE__ ) );
@@ -52,7 +50,7 @@ function cmb2_conditionals_footer()
   }
 
   $url = set_url_scheme( $url );
-	wp_enqueue_script('cmb2-conditionals', $url . '/cmb2-conditionals.js', array('jquery'), '1.0.2', true);
+	wp_enqueue_script('cmb2-conditionals', $url . 'cmb2-conditionals.js', array('jquery'), '1.0.2', true);
 }
 
 /**
