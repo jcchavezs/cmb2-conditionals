@@ -21,7 +21,7 @@ function cmb2_conditionals_load_actions()
 	define('CMB2_CONDITIONALS_PRIORITY', 99999);
 
 	add_action('admin_init', 'cmb2_conditionals_hook_data_to_save_filtering', CMB2_CONDITIONALS_PRIORITY);
-	add_action('admin_footer', 'cmb2_conditionals_footer', CMB2_CONDITIONALS_PRIORITY);
+	add_action('wp_enqueue_scripts', 'cmb2_conditionals_footer', CMB2_CONDITIONALS_PRIORITY);
 }
 
 /**
