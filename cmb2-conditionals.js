@@ -24,7 +24,7 @@ jQuery(document).ready(function($) {
 						CMB2ConditionalToggleRows('[data-conditional-id="' + id + '"]', $element.prop('checked'));
 						CMB2ConditionalToggleRows('[data-conditional-id="' + id + '"][data-conditional-value="on"]', $element.prop('checked'));
 						CMB2ConditionalToggleRows('[data-conditional-id="' + id + '"][data-conditional-value="off"]', !$element.prop('checked'));
-          } else if(typeof value === 'undefined') {
+					} else if(typeof value === 'undefined') {
 						CMB2ConditionalToggleRows('[data-conditional-id="' + id + '"]', ($element.val() ? true : false));
 					} else {
 						CMB2ConditionalToggleRows('[data-conditional-id="' + id + '"]:not([data-conditional-value="' + conditionValue + '"])', false);
