@@ -20,7 +20,11 @@ jQuery(document).ready(function($) {
 				.on('change', function(evt){
 					var conditionValue = CMB2ConditionalsStringToUnicode(evt.currentTarget.value);
 
-					if(typeof value === 'undefined') {
+					if($element.attr('type') == 'checkbox') {
+						CMB2ConditionalToggleRows('[data-conditional-id="' + id + '"]', $element.prop('checked'));
+						CMB2ConditionalToggleRows('[data-conditional-id="' + id + '"][data-conditional-value="on"]', $element.prop('checked'));
+						CMB2ConditionalToggleRows('[data-conditional-id="' + id + '"][data-conditional-value="off"]', !$element.prop('checked'));
+          } else if(typeof value === 'undefined') {
 						CMB2ConditionalToggleRows('[data-conditional-id="' + id + '"]', ($element.val() ? true : false));
 					} else {
 						CMB2ConditionalToggleRows('[data-conditional-id="' + id + '"]:not([data-conditional-value="' + conditionValue + '"])', false);
