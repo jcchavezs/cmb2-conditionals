@@ -18,11 +18,15 @@ jQuery(document).ready(function($) {
 
 			$element
 				.on('change', function(evt){
-					var conditionValue = CMB2ConditionalsStringToUnicode(evt.currentTarget.value);
-
-					if(typeof value === 'undefined') {
+					if($element.attr('type') == 'checkbox') {
+						var checked = $element.prop('checked');
+						CMB2ConditionalToggleRows('[data-conditional-id="' + id + '"]', checked);
+						CMB2ConditionalToggleRows('[data-conditional-id="' + id + '"][data-conditional-value="on"]', checked);
+						CMB2ConditionalToggleRows('[data-conditional-id="' + id + '"][data-conditional-value="off"]', !checked);
+					} else if(typeof value === 'undefined') {
 						CMB2ConditionalToggleRows('[data-conditional-id="' + id + '"]', ($element.val() ? true : false));
 					} else {
+						var conditionValue = CMB2ConditionalsStringToUnicode(evt.currentTarget.value);
 						CMB2ConditionalToggleRows('[data-conditional-id="' + id + '"]:not([data-conditional-value="' + conditionValue + '"])', false);
 						CMB2ConditionalToggleRows('[data-conditional-id="' + id + '"][data-conditional-value="' + conditionValue + '"]', true);
 						CMB2ConditionalToggleRows('[data-conditional-id="' + id + '"][data-conditional-value*=\'"' + conditionValue + '"\']', true);

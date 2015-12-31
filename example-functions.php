@@ -76,6 +76,32 @@ function yourprefix_register_demo_metabox() {
 	) );
 
 	$cmb_demo->add_field( array(
+		'name' => 'Checkbox',
+		'id'   => $prefix . 'checkbox',
+		'type' => 'checkbox',
+	) );
+
+	$cmb_demo->add_field( array(
+		'name' => 'Show if checked',
+		'id'   => $prefix . 'show_if_checked',
+		'type' => 'text',
+		'attributes' => array(
+			'data-conditional-id' => $prefix . 'checkbox',
+			// works too: 'data-conditional-value' => 'on',
+		)
+	) );
+
+	$cmb_demo->add_field( array(
+		'name' => 'Show if unchecked',
+		'id'   => $prefix . 'show_if_unchecked',
+		'type' => 'text',
+		'attributes' => array(
+			'data-conditional-id' => $prefix . 'checkbox',
+			'data-conditional-value' => 'off',
+		)
+	) );
+
+	$cmb_demo->add_field( array(
 		'name'             => 'Reason',
 		'id'               => $prefix . 'reason',
 		'type'             => 'select',
