@@ -16,6 +16,12 @@
 
 To get started, please follow the examples in the included `example-functions.php` file.
 
+## Requirements
+
+- PHP 5.2.4+
+- Wordpress 3.8+
+- CMB2
+
 ## Installation
 
 If installing the plugin from wordpress.org:
