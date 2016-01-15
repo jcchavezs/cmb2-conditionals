@@ -68,7 +68,7 @@ function cmb2_conditional_filter_data_to_save(CMB2 $cmb2, $object_id)
 		) {
 			$conditional_value = $field_args['attributes']['data-conditional-value'];
 
-			$conditional_value = @json_decode($conditional_value) ?: $conditional_value;
+			$conditional_value = ($decoded_conditional_value = @json_decode($conditional_value)) ? $decoded_conditional_value : $conditional_value;
 
 			if(is_array($conditional_value) && !in_array($cmb2->data_to_save[$conditional_id], $conditional_value)) {
 				unset($cmb2->data_to_save[$field_id]);
