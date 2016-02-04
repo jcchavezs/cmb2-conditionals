@@ -15,7 +15,9 @@
  * Get the bootstrap! If using the plugin from wordpress.org, REMOVE THIS!
  */
 
-define('CMB2_DIR', WP_CONTENT_DIR . '/cmb2');
+if ( ! defined( 'CMB2_DIR' ) ) {
+	define('CMB2_DIR', WP_PLUGIN_DIR . '/cmb2');
+}
 
 if ( file_exists( CMB2_DIR . '/cmb2/init.php' ) ) {
 	require_once CMB2_DIR . '/cmb2/init.php';
@@ -46,7 +48,7 @@ function yourprefix_register_demo_metabox() {
 		'desc'       => 'Write down an address for showing the other address options',
 		'id'         => $prefix . 'address',
 		'type'       => 'text',
-		'show_on_cb' => 'yourprefix_hide_if_no_cats', // function should return a bool value
+		// 'show_on_cb' => 'yourprefix_hide_if_no_cats', // function should return a bool value
 		// 'sanitization_cb' => 'my_custom_sanitization', // custom sanitization callback parameter
 		// 'escape_cb'       => 'my_custom_escaping',  // custom escaping callback parameter
 		// 'on_front'        => false, // Optionally designate a field to wp-admin only
