@@ -20,7 +20,7 @@ matrix:
     - php: nightly
 
 before_script:
-  - git clone https://github.com/Seravo/wordpress-test-template wp-tests
+  - git clone https://github.com/Koodimonni/wordpress-test-template wp-tests
   - bash wp-tests/bin/install-wp-tests.sh test root '' localhost $WP_VERSION
 
 script:
