@@ -184,4 +184,80 @@ function yourprefix_register_demo_metabox() {
 			'data-conditional-value' => 'custom',
 		)
 	) );
+
+
+	// Example using conditionals with multi-check checkboxes.
+	$cmb_demo->add_field( array(
+		'name'    => __( 'Test Multi Checkbox', 'cmb2' ),
+		'desc'    => __( 'field description (optional)', 'cmb2' ),
+		'id'      => $prefix . 'multi-checkbox',
+		'type'    => 'multicheck',
+		'options' => array(
+			'check1' => __( 'Check One', 'cmb2' ),
+			'check2' => __( 'Check Two', 'cmb2' ),
+			'check3' => __( 'Check Three', 'cmb2' ),
+		),
+	) );
+
+
+	$cmb_demo->add_field( array(
+		'name' => 'Multi-check: Shown if *any* checkbox is checked',
+		'id'   => $prefix . 'multi-check-detail-test-no-value',
+		'type' => 'text',
+		'attributes' => array(
+			'required' => true, // Will be required only if visible.
+			'data-conditional-id' => $prefix . 'multi-checkbox',
+		)
+	) );
+
+	$cmb_demo->add_field( array(
+		'name' => 'Multi-check: Only shown if checkbox 2 is checked',
+		'id'   => $prefix . 'multi-check-detail-test-string',
+		'type' => 'text',
+		'attributes' => array(
+			'data-conditional-id' => $prefix . 'multi-checkbox',
+			'data-conditional-value' => 'check2',
+		)
+	) );
+
+	$cmb_demo->add_field( array(
+		'name' => 'Multi-check : Shown if either checkbox 1 *or* 3 is checked',
+		'id'   => $prefix . 'multi-check-detail-test-array',
+		'type' => 'text',
+		'attributes' => array(
+			'data-conditional-id' => $prefix . 'multi-checkbox',
+			'data-conditional-value' => json_encode( array( 'check1', 'check3' ) ),
+		)
+	) );
+
+
+	// Example conditionals within a group
+	$group_id = $cmb_demo->add_field( array(
+		'id'          => $prefix . 'repeatable-group',
+		'type'        => 'group',
+		'description' => 'Repeatable group',
+		'options'     => array(
+			'group_title'   => 'Entry {#}', // since version 1.1.4, {#} gets replaced by row number
+			'add_button'    => 'Add Another Entry',
+			'remove_button' => 'Remove Entry',
+			'sortable'      => true, // beta
+		),
+	) );
+
+	$cmb_demo->add_group_field( $group_id, array(
+		'name' => 'Checkbox in group',
+		'id'   => 'checkbox',
+		'type' => 'checkbox',
+	) );
+
+	$cmb_demo->add_group_field( $group_id, array(
+		'name' => 'Dependant field',
+		'id'   => 'dependant',
+		'type' => 'text_small',
+		'attributes' => array(
+			'required' => true, // Will be required only if visible.
+			'data-conditional-id' => json_encode( array( $group_id, 'checkbox' ) ),
+			'data-conditional-value' => 'on',
+		)
+	) );
 }
