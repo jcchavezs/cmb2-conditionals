@@ -19,13 +19,13 @@ How to report a bug
 5. If helpful, include a screenshot. Annotate the screenshot for clarity.
 
 
-How to contribute to CMB2
+How to contribute to CMB2 Conditionals
 ---
 All contributions welcome. If you would like to submit a pull request, please follow the steps below.
 
 1. Make sure you have a GitHub account.
 2. Fork the repository on GitHub.
-3. **Check out the master version of CMB2.**
+3. **Check out the master version of CMB2 Conditionals.**
 4. **Verify your issue still exists in the master branch.**
 5. Make changes to your clone of the repository.
 	1. Please follow the [WordPress code standards](https://make.wordpress.org/core/handbook/coding-standards).
