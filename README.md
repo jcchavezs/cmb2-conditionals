@@ -1,12 +1,12 @@
 # CMB2 Conditionals
 
-**Contributors:**      [jcchavezs](https://github.com/jcchavezs)  
-**Tags:**              cmb2, conditionals, metaboxes  
-**Requires at least:** 3.8.0  
-**Tested up to:**      4.3  
-**Stable tag:**        1.0.4  
-**License:**           GPLv2 or later  
-**License URI:**       [http://www.gnu.org/licenses/gpl-2.0.html](http://www.gnu.org/licenses/gpl-2.0.html)  
+**Contributors:**      [jcchavezs](https://github.com/jcchavezs)
+**Tags:**              cmb2, conditionals, metaboxes
+**Requires at least:** 3.8.0
+**Tested up to:**      4.3
+**Stable tag:**        1.0.4
+**License:**           GPLv2 or later
+**License URI:**       [http://www.gnu.org/licenses/gpl-2.0.html](http://www.gnu.org/licenses/gpl-2.0.html)
 
 ## Description
 
@@ -21,6 +21,11 @@ To get started, please follow the examples in the included `example-functions.ph
 - PHP 5.2.4+
 - Wordpress 3.8+
 - CMB2
+
+## Contribution
+All contributions welcome. If you would like to submit a pull request, please check out the [master branch](https://github.com/jcchavezs/cmb2-conditionals/tree/master) and pull request against it. Please read the [CONTRIBUTING](https://github.com/jcchavezs/cmb2-conditionals/blob/master/CONTRIBUTING.md) doc for more details.
+
+A complete list of all our awesome contributors found here: [github.com/jcchavezs/cmb2-conditionals/graphs/contributors](https://github.com/jcchavezs/cmb2-conditionals/graphs/contributors)
 
 ## Installation
 
