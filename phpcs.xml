@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<ruleset name="CMB2 Conditionals">
+	<description>CMB2 Conditionals Plugin rules for PHP_CodeSniffer</description>
+
+	<exclude-pattern>*/index.php</exclude-pattern>
+
+	<!-- ##### Comply with the WordPress coding standards ##### -->
+	<rule ref="WordPress" />
+
+	<!-- ##### Sniffs for PHP cross-version compatibility ##### -->
+	<rule ref="PHPCompatibility" />
+
+</ruleset>

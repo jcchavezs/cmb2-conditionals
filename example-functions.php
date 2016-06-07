@@ -12,11 +12,11 @@
  */
 
 /**
- * Get the bootstrap! If using the plugin from wordpress.org, REMOVE THIS!
+ * Get the bootstrap! If using the CMB2 installed as a plugin, REMOVE THIS!
  */
 
 if ( ! defined( 'CMB2_DIR' ) ) {
-	define('CMB2_DIR', WP_PLUGIN_DIR . '/cmb2');
+	define( 'CMB2_DIR', WP_PLUGIN_DIR . '/cmb2' );
 }
 
 if ( file_exists( CMB2_DIR . '/cmb2/init.php' ) ) {
@@ -25,22 +25,22 @@ if ( file_exists( CMB2_DIR . '/cmb2/init.php' ) ) {
 	require_once CMB2_DIR . '/CMB2/init.php';
 }
 
-add_action( 'cmb2_init', 'yourprefix_register_demo_metabox' );
+add_action( 'cmb2_init', 'yourprefix_register_conditionals_demo_metabox' );
 /**
  * Hook in and add a demo metabox. Can only happen on the 'cmb2_init' hook.
  */
-function yourprefix_register_demo_metabox() {
+function yourprefix_register_conditionals_demo_metabox() {
 
-	// Start with an underscore to hide fields from custom fields list
-	$prefix = '_yourprefix_demo_';
+	// Start with an underscore to hide fields from custom fields list.
+	$prefix = '_yourprefix_conditions_demo_';
 
 	/**
-	 * Sample metabox to demonstrate each field type included
+	 * Sample metabox to demonstrate the different conditions you can set.
 	 */
 	$cmb_demo = new_cmb2_box( array(
 		'id'            => $prefix . 'metabox',
 		'title'         => 'Test Metabox',
-		'object_types'  => array( 'page', ), // Post type
+		'object_types'  => array( 'page' ), // Post type.
 	) );
 
 	$cmb_demo->add_field( array(
@@ -48,33 +48,26 @@ function yourprefix_register_demo_metabox() {
 		'desc'       => 'Write down an address for showing the other address options',
 		'id'         => $prefix . 'address',
 		'type'       => 'text',
-		// 'show_on_cb' => 'yourprefix_hide_if_no_cats', // function should return a bool value
-		// 'sanitization_cb' => 'my_custom_sanitization', // custom sanitization callback parameter
-		// 'escape_cb'       => 'my_custom_escaping',  // custom escaping callback parameter
-		// 'on_front'        => false, // Optionally designate a field to wp-admin only
-		// 'repeatable'      => true,
 	) );
 
 	$cmb_demo->add_field( array(
-		'name' => 'Zipcode',
-		'id'   => $prefix . 'zipcode',
-		'type' => 'text_medium',
-		// 'repeatable' => true,
+		'name'       => 'Zipcode',
+		'id'         => $prefix . 'zipcode',
+		'type'       => 'text_medium',
 		'attributes' => array(
-			'required' => true, // Will be required only if visible.
+			'required'            => true, // Will be required only if visible.
 			'data-conditional-id' => $prefix . 'address',
-		)
+		),
 	) );
 
 	$cmb_demo->add_field( array(
-		'name' => 'Country',
-		'id'   => $prefix . 'country',
-		'type' => 'text_medium',
-		// 'repeatable' => true,
+		'name'       => 'Country',
+		'id'         => $prefix . 'country',
+		'type'       => 'text_medium',
 		'attributes' => array(
-			'required' => true, // Will be required only if visible.
+			'required'            => true, // Will be required only if visible.
 			'data-conditional-id' => $prefix . 'address',
-		)
+		),
 	) );
 
 	$cmb_demo->add_field( array(
@@ -84,23 +77,23 @@ function yourprefix_register_demo_metabox() {
 	) );
 
 	$cmb_demo->add_field( array(
-		'name' => 'Show if checked',
-		'id'   => $prefix . 'show_if_checked',
-		'type' => 'text',
+		'name'       => 'Show if checked',
+		'id'         => $prefix . 'show_if_checked',
+		'type'       => 'text',
 		'attributes' => array(
 			'data-conditional-id' => $prefix . 'checkbox',
-			// works too: 'data-conditional-value' => 'on',
-		)
+			// Works too: 'data-conditional-value' => 'on'.
+		),
 	) );
 
 	$cmb_demo->add_field( array(
-		'name' => 'Show if unchecked',
-		'id'   => $prefix . 'show_if_unchecked',
-		'type' => 'text',
+		'name'       => 'Show if unchecked',
+		'id'         => $prefix . 'show_if_unchecked',
+		'type'       => 'text',
 		'attributes' => array(
-			'data-conditional-id' => $prefix . 'checkbox',
+			'data-conditional-id'    => $prefix . 'checkbox',
 			'data-conditional-value' => 'off',
-		)
+		),
 	) );
 
 	$cmb_demo->add_field( array(
@@ -109,23 +102,23 @@ function yourprefix_register_demo_metabox() {
 		'type'             => 'select',
 		'show_option_none' => true,
 		'options'          => array(
-			'one' => 'Reason 1',
-			'two' => 'Reason 2',
+			'one'   => 'Reason 1',
+			'two'   => 'Reason 2',
 			'three' => 'Reason 3',
-			'other' => 'Other reason'
+			'other' => 'Other reason',
 		),
 	) );
 
 	$cmb_demo->add_field( array(
-		'name' => 'Other reason detail',
-		'desc' => 'Write down the reason',
-		'id'   => $prefix . 'other_reason_detail',
-		'type' => 'textarea',
+		'name'       => 'Other reason detail',
+		'desc'       => 'Write down the reason',
+		'id'         => $prefix . 'other_reason_detail',
+		'type'       => 'textarea',
 		'attributes' => array(
-			'required' => true, // Will be required only if visible.
-			'data-conditional-id' => $prefix . 'reason',
+			'required'               => true, // Will be required only if visible.
+			'data-conditional-id'    => $prefix . 'reason',
 			'data-conditional-value' => 'other',
-		)
+		),
 	) );
 
 	$cmb_demo->add_field( array(
@@ -134,24 +127,24 @@ function yourprefix_register_demo_metabox() {
 		'type'             => 'select',
 		'show_option_none' => true,
 		'options'          => array(
-			'one' => 'Reason 1',
-			'two' => 'Reason 2',
-			'three' => 'Reason 3',
-			'other_price' => 'Other reason based on the price',
-			'other_quality' => 'Other reason based on the quality'
+			'one'            => 'Reason 1',
+			'two'            => 'Reason 2',
+			'three'          => 'Reason 3',
+			'other_price'    => 'Other reason based on the price',
+			'other_quality'  => 'Other reason based on the quality',
 		),
 	) );
 
 	$cmb_demo->add_field( array(
-		'name' => 'Other reason detail',
-		'desc' => 'Write down the reason',
-		'id'   => $prefix . 'other_reason_detail_2',
-		'type' => 'textarea',
+		'name'       => 'Other reason detail',
+		'desc'       => 'Write down the reason',
+		'id'         => $prefix . 'other_reason_detail_2',
+		'type'       => 'textarea',
 		'attributes' => array(
-			'required' => true, // Will be required only if visible.
-			'data-conditional-id' => $prefix . 'reason_2',
-			'data-conditional-value' => json_encode(array('other_price', 'other_quality'))
-		)
+			'required'               => true, // Will be required only if visible.
+			'data-conditional-id'    => $prefix . 'reason_2',
+			'data-conditional-value' => json_encode( array( 'other_price', 'other_quality' ) ),
+		),
 	) );
 
 	$cmb_demo->add_field( array(
@@ -160,31 +153,30 @@ function yourprefix_register_demo_metabox() {
 		'type'             => 'radio',
 		'show_option_none' => true,
 		'options'          => array(
-		    'xs' => 'XS',
-		    's' => 'S',
-		    'm'   => 'M',
-		    'l'     => 'L',
+		    'xs'     => 'XS',
+		    's'      => 'S',
+		    'm'      => 'M',
+		    'l'      => 'L',
 		    'xl'     => 'XL',
-		    'custom'   => 'Custom'
+		    'custom' => 'Custom',
 		),
-		'attributes' => array(
-			 'required'    => 'required',
-		)
+		'attributes'       => array(
+			'required'       => 'required',
+		),
 	) );
 
 	$cmb_demo->add_field( array(
-		'name' => 'Custom description',
-		'desc' => 'Write a description for your custom size',
-		'id'   => $prefix . 'size_custom_description',
-		'type' => 'textarea',
-		'required' => true,
+		'name'       => 'Custom description',
+		'desc'       => 'Write a description for your custom size',
+		'id'         => $prefix . 'size_custom_description',
+		'type'       => 'textarea',
+		'required'   => true,
 		'attributes' => array(
-			'required' => true, // Will be required only if visible.
-			'data-conditional-id' => $prefix . 'sizes',
+			'required'               => true, // Will be required only if visible.
+			'data-conditional-id'    => $prefix . 'sizes',
 			'data-conditional-value' => 'custom',
-		)
+		),
 	) );
-
 
 	// Example using conditionals with multi-check checkboxes.
 	$cmb_demo->add_field( array(
@@ -199,48 +191,46 @@ function yourprefix_register_demo_metabox() {
 		),
 	) );
 
-
 	$cmb_demo->add_field( array(
-		'name' => 'Multi-check: Shown if *any* checkbox is checked',
-		'id'   => $prefix . 'multi-check-detail-test-no-value',
-		'type' => 'text',
+		'name'       => 'Multi-check: Shown if *any* checkbox is checked',
+		'id'         => $prefix . 'multi-check-detail-test-no-value',
+		'type'       => 'text',
 		'attributes' => array(
-			'required' => true, // Will be required only if visible.
+			'required'            => true, // Will be required only if visible.
 			'data-conditional-id' => $prefix . 'multi-checkbox',
-		)
+		),
 	) );
 
 	$cmb_demo->add_field( array(
-		'name' => 'Multi-check: Only shown if checkbox 2 is checked',
-		'id'   => $prefix . 'multi-check-detail-test-string',
-		'type' => 'text',
+		'name'       => 'Multi-check: Only shown if checkbox 2 is checked',
+		'id'         => $prefix . 'multi-check-detail-test-string',
+		'type'       => 'text',
 		'attributes' => array(
-			'data-conditional-id' => $prefix . 'multi-checkbox',
+			'data-conditional-id'    => $prefix . 'multi-checkbox',
 			'data-conditional-value' => 'check2',
-		)
+		),
 	) );
 
 	$cmb_demo->add_field( array(
-		'name' => 'Multi-check : Shown if either checkbox 1 *or* 3 is checked',
-		'id'   => $prefix . 'multi-check-detail-test-array',
-		'type' => 'text',
+		'name'       => 'Multi-check : Shown if either checkbox 1 *or* 3 is checked',
+		'id'         => $prefix . 'multi-check-detail-test-array',
+		'type'       => 'text',
 		'attributes' => array(
-			'data-conditional-id' => $prefix . 'multi-checkbox',
+			'data-conditional-id'    => $prefix . 'multi-checkbox',
 			'data-conditional-value' => json_encode( array( 'check1', 'check3' ) ),
-		)
+		),
 	) );
 
-
-	// Example conditionals within a group
+	// Example conditionals within a group.
 	$group_id = $cmb_demo->add_field( array(
 		'id'          => $prefix . 'repeatable-group',
 		'type'        => 'group',
 		'description' => 'Repeatable group',
 		'options'     => array(
-			'group_title'   => 'Entry {#}', // since version 1.1.4, {#} gets replaced by row number
+			'group_title'   => 'Entry {#}', // Since version 1.1.4, {#} gets replaced by row number.
 			'add_button'    => 'Add Another Entry',
 			'remove_button' => 'Remove Entry',
-			'sortable'      => true, // beta
+			'sortable'      => true, // Beta.
 		),
 	) );
 
@@ -251,13 +241,13 @@ function yourprefix_register_demo_metabox() {
 	) );
 
 	$cmb_demo->add_group_field( $group_id, array(
-		'name' => 'Dependant field',
-		'id'   => 'dependant',
-		'type' => 'text_small',
+		'name'       => 'Dependant field',
+		'id'         => 'dependant',
+		'type'       => 'text_small',
 		'attributes' => array(
-			'required' => true, // Will be required only if visible.
-			'data-conditional-id' => json_encode( array( $group_id, 'checkbox' ) ),
+			'required'               => true, // Will be required only if visible.
+			'data-conditional-id'    => json_encode( array( $group_id, 'checkbox' ) ),
 			'data-conditional-value' => 'on',
-		)
+		),
 	) );
 }
