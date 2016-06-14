@@ -1,6 +1,8 @@
 # CMB2 Conditionals
 
 [![Join the chat at https://gitter.im/jcchavezs/cmb2-conditionals](https://badges.gitter.im/jcchavezs/cmb2-conditionals.svg)](https://gitter.im/jcchavezs/cmb2-conditionals?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Total Downloads](https://poser.pugx.org/jcchavezs/cmb2-conditionals/downloads)](https://packagist.org/packages/jcchavezs/cmb2-conditionals)
+[![License](https://poser.pugx.org/jcchavezs/cmb2-conditionals/license)](https://packagist.org/packages/jcchavezs/cmb2-conditionals)
 
 **Contributors:**      [jcchavezs](https://github.com/jcchavezs)  
 **Tags:**              cmb2, conditionals, metaboxes  
