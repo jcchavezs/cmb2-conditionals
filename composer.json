@@ -1,0 +1,26 @@
+{
+    "name": "jcchavezs/cmb2-conditionals",
+    "description": "CMB2 Conditionals is a plugin for CMB2 which allows developers to relate fields so one of them could only appear when one other have an specific value or when is not empty.",
+    "license": "GPL-2.0+",
+    "authors": [
+        {
+            "name": "José Carlos Chávez",
+            "email": "jcchavezs@gmail.com",
+            "homepage": "https://github.com/jcchavezs",
+            "role": "Developer"
+        }
+    ],
+    "keywords": ["wordpress", "plugin", "metabox", "conditionals"],
+    "homepage": "https://github.com/jcchavezs/cmb2-conditionals",
+    "type": "wordpress-plugin",
+    "support": {
+        "issues": "https://github.com/jcchavezs/cmb2-conditionals/issues"
+    },
+    "require": {
+        "php": ">5.2.4",
+        "webdevstudios/cmb2": "~v2.0"
+    },
+    "suggest": {
+        "composer/installers": "~1.0"
+    }
+}

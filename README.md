@@ -2,13 +2,13 @@
 
 [![Join the chat at https://gitter.im/jcchavezs/cmb2-conditionals](https://badges.gitter.im/jcchavezs/cmb2-conditionals.svg)](https://gitter.im/jcchavezs/cmb2-conditionals?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-**Contributors:**      [jcchavezs](https://github.com/jcchavezs)
-**Tags:**              cmb2, conditionals, metaboxes
-**Requires at least:** 3.8.0
-**Tested up to:**      4.3
-**Stable tag:**        1.0.4
-**License:**           GPLv2 or later
-**License URI:**       [http://www.gnu.org/licenses/gpl-2.0.html](http://www.gnu.org/licenses/gpl-2.0.html)
+**Contributors:**      [jcchavezs](https://github.com/jcchavezs)  
+**Tags:**              cmb2, conditionals, metaboxes  
+**Requires at least:** 3.8.0  
+**Tested up to:**      4.3  
+**Stable tag:**        1.0.4  
+**License:**           GPLv2 or later  
+**License URI:**       [http://www.gnu.org/licenses/gpl-2.0.html](http://www.gnu.org/licenses/gpl-2.0.html)  
 
 ## Description
 
