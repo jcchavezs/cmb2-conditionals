@@ -1,5 +1,7 @@
 # CMB2 Conditionals
 
+[![Join the chat at https://gitter.im/jcchavezs/cmb2-conditionals](https://badges.gitter.im/jcchavezs/cmb2-conditionals.svg)](https://gitter.im/jcchavezs/cmb2-conditionals?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 **Contributors:**      [jcchavezs](https://github.com/jcchavezs)
 **Tags:**              cmb2, conditionals, metaboxes
 **Requires at least:** 3.8.0
