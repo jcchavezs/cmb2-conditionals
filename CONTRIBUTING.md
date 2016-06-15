@@ -32,7 +32,7 @@ All contributions welcome. If you would like to submit a pull request, please fo
 	2. Use self descriptive names for the functions, so you can avoid inline documentation.
 	3. Separate the changes in atomic commits doing just one thing per commit.
 	4. When committing, reference your issue (by adding [#XX] at the begining of the message) and include a note about the fix.
-	5. **Keep PRs as small as possible** and follow [well known best practices when submiting a PR](http://blog.ploeh.dk/2015/01/15/10-tips-for-better-pull-requests/).
+	5. **Keep PRs as small as possible** and follow [well known best practices when submiting a PR](http://blog.ploeh.dk/2015/01/15/10-tips-for-better-pull-requests/). **Open one PR per each issue. Do not open one PR for more than one issue.**
 6. [Submit a pull request](https://help.github.com/articles/creating-a-pull-request/).
 
 **Note:** You may gain more ground and avoid unecessary effort if you first open an issue with the proposed changes, but this step is not necessary.
