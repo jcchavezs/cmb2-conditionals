@@ -8,6 +8,7 @@
 	<rule ref="WordPress" />
 
 	<!-- ##### Sniffs for PHP cross-version compatibility ##### -->
-	<rule ref="PHPCompatibility" />
+	<config name="testVersion" value="5.2-99.0"/>
+	<rule ref="PHPCompatibility"/>
 
 </ruleset>
