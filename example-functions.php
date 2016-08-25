@@ -143,7 +143,7 @@ function yourprefix_register_conditionals_demo_metabox() {
 		'attributes' => array(
 			'required'               => true, // Will be required only if visible.
 			'data-conditional-id'    => $prefix . 'reason_2',
-			'data-conditional-value' => json_encode( array( 'other_price', 'other_quality' ) ),
+			'data-conditional-value' => wp_json_encode( array( 'other_price', 'other_quality' ) ),
 		),
 	) );
 
@@ -217,7 +217,7 @@ function yourprefix_register_conditionals_demo_metabox() {
 		'type'       => 'text',
 		'attributes' => array(
 			'data-conditional-id'    => $prefix . 'multi-checkbox',
-			'data-conditional-value' => json_encode( array( 'check1', 'check3' ) ),
+			'data-conditional-value' => wp_json_encode( array( 'check1', 'check3' ) ),
 		),
 	) );
 
@@ -246,7 +246,7 @@ function yourprefix_register_conditionals_demo_metabox() {
 		'type'       => 'text_small',
 		'attributes' => array(
 			'required'               => true, // Will be required only if visible.
-			'data-conditional-id'    => json_encode( array( $group_id, 'checkbox' ) ),
+			'data-conditional-id'    => wp_json_encode( array( $group_id, 'checkbox' ) ),
 			'data-conditional-value' => 'on',
 		),
 	) );
