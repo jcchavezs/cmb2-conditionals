@@ -33,24 +33,8 @@ function cmb2_conditionals_footer($hook)
     return;
   }
 
-  $dir = trailingslashit( dirname( __FILE__ ) );
-
-  if ( 'WIN' === strtoupper( substr( PHP_OS, 0, 3 ) ) ) {
-    // Windows
-    $content_dir = str_replace( '/', DIRECTORY_SEPARATOR, WP_CONTENT_DIR );
-    $content_url = str_replace( $content_dir, WP_CONTENT_URL, $dir );
-    $url = str_replace( DIRECTORY_SEPARATOR, '/', $content_url );
-
-  } else {
-    $url = str_replace(
-      array( WP_CONTENT_DIR, WP_PLUGIN_DIR ),
-      array( WP_CONTENT_URL, WP_PLUGIN_URL ),
-      $dir
-    );
-  }
-
-  $url = set_url_scheme( $url );
-	wp_enqueue_script('cmb2-conditionals', $url . 'cmb2-conditionals.js', array('jquery'), '1.0.2', true);
+  $url = CMB2_Utils::get_url_from_dir( trailingslashit( dirname( __FILE__ ) ) )
+  wp_enqueue_script('cmb2-conditionals', $url . 'cmb2-conditionals.js', array('jquery'), '1.0.2', true);
 }
 
 /**
