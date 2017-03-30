@@ -264,4 +264,4 @@ if ( ! class_exists( 'CMB2_Conditionals' ) ) {
 			$cmb2_conditionals = new CMB2_Conditionals();
 		}
 	}
-} /* End of class-exists wrapper. */
+} // End if() class-exists wrapper.
