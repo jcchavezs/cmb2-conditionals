@@ -83,13 +83,10 @@ if ( ! class_exists( 'CMB2_Conditionals' ) ) {
 		/**
 		 * Constructor - Set up the actions for the plugin.
 		 */
-		public function __construct() {
-			if ( ! defined( 'CMB2_LOADED' ) || false === CMB2_LOADED ) {
-				return;
-			}
+		public function __construct() {			
 
-			add_action( 'admin_init', array( $this, 'admin_init' ), self::PRIORITY );
-			add_action( 'admin_footer', array( $this, 'admin_footer' ), self::PRIORITY );
+			add_action( 'cmb2_admin_init', array( $this, 'admin_init' ), self::PRIORITY );
+			add_action( 'cmb2_footer_enqueue', array( $this, 'admin_footer' ), self::PRIORITY );
 
 			foreach ( $this->maybe_required_form_elms as $element ) {
 				add_filter( "cmb2_{$element}_attributes", array( $this, 'maybe_set_required_attribute' ), self::PRIORITY );
@@ -100,10 +97,7 @@ if ( ! class_exists( 'CMB2_Conditionals' ) ) {
 		 * Decide whether to include the js-script or not.
 		 */
 		public function admin_footer() {
-		    if ( ! in_array( $GLOBALS['pagenow'], array( 'post-new.php', 'post.php' ), true ) ) {
-		    	return;
-		    }
-
+		   
 			wp_enqueue_script(
 				'cmb2-conditionals',
 				plugins_url( '/cmb2-conditionals.js', __FILE__ ),
