@@ -4,7 +4,7 @@
 [![Total Downloads](https://poser.pugx.org/jcchavezs/cmb2-conditionals/downloads)](https://packagist.org/packages/jcchavezs/cmb2-conditionals)
 [![License](https://poser.pugx.org/jcchavezs/cmb2-conditionals/license)](https://packagist.org/packages/jcchavezs/cmb2-conditionals)
 
-**Contributors:**      [jcchavezs](https://github.com/jcchavezs)  
+**Contributors:**      [jcchavezs](https://github.com/jcchavezs), [jrfnl](https://github.com/jrfnl)
 **Tags:**              cmb2, conditionals, metaboxes  
 **Requires at least:** 3.8.0  
 **Tested up to:**      4.3  
@@ -15,8 +15,6 @@
 ## Description
 
 **CMB2 Conditionals** is a plugin for [CMB2](https://github.com/WebDevStudios/CMB2) which allows developers to relate fields so one of them could only appear when one other have an specific value or when is not empty.
-
-**[Download plugin on wordpress.org](http://wordpress.org/plugins/cmb2-conditionals/)**
 
 To get started, please follow the examples in the included `example-functions.php` file.
 
