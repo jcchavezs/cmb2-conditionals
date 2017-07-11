@@ -12,13 +12,13 @@
  *
  * @wordpress-plugin
  * Plugin Name:       CMB2 Conditionals
- * Plugin URI:        https://github.com/jcchavezs/cmb2-conditionals
+ * Plugin URI:        https://github.com/yaronguez/cmb2-conditionals
  * Description:       Plugin to establish conditional relationships between fields in a CMB2 metabox.
  * Author:            José Carlos Chávez <jcchavezs@gmail.com>
  * Author URI:        http://github.com/jcchavezs
- * Github Plugin URI: https://github.com/jcchavezs/cmb2-conditionals
+ * Github Plugin URI: https://github.com/yaronguez/cmb2-conditionals
  * Github Branch:     master
- * Version:           1.0.4
+ * Version:           1.0.5
  * License:           GPL v3
  *
  * Copyright (C) 2015, José Carlos Chávez - jcchavezs@gmail.com
