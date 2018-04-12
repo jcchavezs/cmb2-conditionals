@@ -40,7 +40,7 @@ jQuery( document ).ready( function( $ ) {
 				dependantsSeen = [],
 				checkedValues,
 				elmValue;
-
+                      if (typeof fieldName !== 'undefined') {  
 			// Is there an element which is conditional on this element ?
 			dependants = CMB2ConditionalsFindDependants( fieldName, elm, conditionContext );
 
@@ -123,6 +123,7 @@ jQuery( document ).ready( function( $ ) {
 					}
 				});
 			}
+		}
 		});
 
 
