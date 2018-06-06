@@ -106,7 +106,7 @@ if ( ! class_exists( 'CMB2_Conditionals' ) ) {
 
 			wp_enqueue_script(
 				'cmb2-conditionals',
-				plugins_url( '/cmb2-conditionals.js', __FILE__ ),
+				get_site_url().'/'.str_replace(get_home_path(), '', __DIR__).'/cmb2-conditionals.js',
 				array( 'jquery', 'cmb2-scripts' ),
 				self::VERSION,
 				true
