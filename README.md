@@ -12,6 +12,10 @@
 **License:**           GPLv2 or later  
 **License URI:**       [http://www.gnu.org/licenses/gpl-2.0.html](http://www.gnu.org/licenses/gpl-2.0.html)  
 
+## Disclaimer
+
+This plugin is loved by many people but unfortunately I can not maintain it anymore so if you want to be a contributor just [ping me on gitter](https://gitter.im/jcchavezs).
+
 ## Description
 
 **CMB2 Conditionals** is a plugin for [CMB2](https://github.com/WebDevStudios/CMB2) which allows developers to relate fields so one of them could only appear when one other have an specific value or when is not empty.
