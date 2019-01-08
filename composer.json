@@ -18,7 +18,7 @@
     },
     "require": {
         "php": ">5.2.4",
-        "webdevstudios/cmb2": "~v2.0"
+        "cmb2/cmb2": "~v2.0"
     },
     "suggest": {
         "composer/installers": "~1.0"
