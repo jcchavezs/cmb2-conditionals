@@ -261,7 +261,12 @@ if ( ! class_exists( 'CMB2_Conditionals' ) ) {
 		 * Initialize the class.
 		 */
 		function cmb2_conditionals_init() {
-			$cmb2_conditionals = new CMB2_Conditionals();
+			static $cmb2_conditionals = null;
+			if ( null === $cmb2_conditionals ) {
+				$cmb2_conditionals = new CMB2_Conditionals();
+			}
+
+			return $cmb2_conditionals;
 		}
 	}
 } /* End of class-exists wrapper. */
