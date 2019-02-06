@@ -39,7 +39,7 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-if ( ! class_exists( 'CMB2_Conditionals' ) ) {
+if ( ! class_exists( 'CMB2_Conditionals', false ) ) {
 
 	/**
 	 * CMB2_Conditionals Plugin.
