@@ -253,7 +253,7 @@ if ( ! class_exists( 'CMB2_Conditionals' ) ) {
 	 * check can be removed once the min version for this plugin has been upped to 4.4.}}
 	 */
 	if ( ( function_exists( 'wp_installing' ) && wp_installing() === false ) || ( ! function_exists( 'wp_installing' ) && ( ! defined( 'WP_INSTALLING' ) || WP_INSTALLING === false ) ) ) {
-		add_action( 'plugins_loaded', 'cmb2_conditionals_init' );
+		add_action( 'after_setup_theme', 'cmb2_conditionals_init' );
 	}
 
 	if ( ! function_exists( 'cmb2_conditionals_init' ) ) {
@@ -264,4 +264,4 @@ if ( ! class_exists( 'CMB2_Conditionals' ) ) {
 			$cmb2_conditionals = new CMB2_Conditionals();
 		}
 	}
-} /* End of class-exists wrapper. */
+} // End if().
