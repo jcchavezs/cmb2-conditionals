@@ -8,11 +8,10 @@ jQuery( document ).ready( function( $ ) {
 	$.each( ['show', 'hide'], function( i, ev ) {
 		var el = $.fn[ev];
 		$.fn[ev] = function() {
-			this.trigger( ev );
+			this.trigger( 'CMB2' + ev );
 			return el.apply( this, arguments );
 		};
 	});
-
 
 	/**
 	 * Set up the functionality for CMB2 conditionals.
@@ -143,14 +142,14 @@ jQuery( document ).ready( function( $ ) {
 		 */
 
 		// Remove the required property from form elements within rows being hidden.
-		conditionContext.on( 'hide', '.cmb-row', function() {
+		conditionContext.on( 'CMB2hide', '.cmb-row', function() {
 			$( this ).children( '[data-conditional-required="required"]' ).each( function( i, e ) {
 				$( e ).prop( 'required', false );
 			});
 		});
 
 		// Add the required property to form elements within rows being unhidden.
-		conditionContext.on( 'show', '.cmb-row', function() {
+		conditionContext.on( 'CMB2show', '.cmb-row', function() {
 			$( this ).children( '[data-conditional-required="required"]' ).each( function( i, e ) {
 				$( e ).prop( 'required', true );
 			});
