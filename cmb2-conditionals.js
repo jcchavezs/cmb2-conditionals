@@ -279,5 +279,5 @@ jQuery( document ).ready( function( $ ) {
 		return result;
 	}
 
-	CMB2ConditionalsInit( '#post', '#post .cmb2-wrap' );
+	CMB2ConditionalsInit( '.cmb2-wrap' );
 });
