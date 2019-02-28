@@ -213,8 +213,10 @@ jQuery( document ).ready( function( $ ) {
 	 * Allows for within group dependencies and multi-check dependencies.
 	 */
 	function CMB2ConditionalsFindDependants( fieldName, elm, context ) {
-		var inGroup, iterator, dependants;
-
+		var inGroup, iterator;
+		var dependants = [];
+		
+		if( typeof( fieldName ) !== "undefined" ) {
 		// Remove the empty [] at the end of a multi-check field.
 		fieldName = fieldName.replace( /\[\]$/, '' );
 
@@ -232,6 +234,7 @@ jQuery( document ).ready( function( $ ) {
 		// Else within the whole form.
 		else {
 			dependants = $( '[data-conditional-id="' + fieldName + '"]', context );
+		}
 		}
 		return dependants;
 	}
