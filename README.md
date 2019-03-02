@@ -26,7 +26,7 @@ To get started, please follow the examples in the included `example-functions.ph
 
 - PHP 5.2.4+
 - Wordpress 3.8+
-- CMB2
+- CMB2 2.2.3.1+
 
 ## Contribution
 All contributions welcome. If you would like to submit a pull request, please check out the [master branch](https://github.com/jcchavezs/cmb2-conditionals/tree/master) and pull request against it. Please read the [CONTRIBUTING](https://github.com/jcchavezs/cmb2-conditionals/blob/master/CONTRIBUTING.md) doc for more details.
