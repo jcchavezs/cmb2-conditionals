@@ -19,12 +19,12 @@ jQuery( document ).ready( function( $ ) {
 	function CMB2ConditionalsInit( changeContext, conditionContext ) {
 		var loopI, requiredElms, uniqueFormElms, formElms;
 
-		if ( 'undefined' === typeof changeContext ) {
+		if ( 'undefined' === typeof changeContext || $( changeContext ).length < 1 ) {
 			changeContext = 'body';
 		}
 		changeContext = $( changeContext );
 
-		if ( 'undefined' === typeof conditionContext ) {
+		if ( 'undefined' === typeof conditionContext || $( conditionContext ).length < 1 ) {
 			conditionContext = 'body';
 		}
 		conditionContext = $( conditionContext );
