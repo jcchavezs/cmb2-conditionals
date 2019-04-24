@@ -91,6 +91,9 @@ if ( ! class_exists( 'CMB2_Conditionals', false ) ) {
 			add_action( 'admin_init', array( $this, 'admin_init' ), self::PRIORITY );
 			add_action( 'admin_footer', array( $this, 'admin_footer' ), self::PRIORITY );
 
+			// Enable conditionals on front-end if using recent version of CMB2.
+			add_action( 'cmb2_footer_enqueue', array( $this, 'cmb2_footer' ), self::PRIORITY );
+
 			foreach ( $this->maybe_required_form_elms as $element ) {
 				add_filter( "cmb2_{$element}_attributes", array( $this, 'maybe_set_required_attribute' ), self::PRIORITY );
 			}
@@ -134,6 +137,21 @@ if ( ! class_exists( 'CMB2_Conditionals', false ) ) {
 				);
 			}
 
+		}
+
+		/**
+		 * Ensure the cmb2-conditionals js-script is loaded everytime the CMB2 scripts are loaded. This does
+		 * not colide with "admin_footer()" or previeous way of script enqueueing, so back compatibility
+		 * is maintained as well.
+		 */
+		public function cmb2_footer() {
+			wp_enqueue_script(
+				'cmb2-conditionals',
+				plugins_url( '/cmb2-conditionals.js', __FILE__ ),
+				array( 'jquery', 'cmb2-scripts' ),
+				self::VERSION,
+				true
+			);
 		}
 
 
