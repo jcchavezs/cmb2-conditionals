@@ -82,7 +82,7 @@ function yourprefix_register_conditionals_demo_metabox() {
 		'type'       => 'text',
 		'attributes' => array(
 			'data-conditional-id' => $prefix . 'checkbox',
-			// Works too: 'data-conditional-value' => 'on'.
+			'data-conditional-value' => 'on',
 		),
 	) );
 
