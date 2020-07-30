@@ -169,7 +169,7 @@ jQuery( document ).ready( function( $ ) {
 
 		// Selectively trigger the change event.
 		uniqueFormElms = [];
-		$( ':input', changeContext ).each( function( i, e ) {
+		$( '[data-hash]:input', changeContext ).each( function( i, e ) {
 			var elmName = $( e ).attr( 'name' );
 			if ( 'undefined' !== typeof elmName && '' !== elmName && -1 === $.inArray( elmName, uniqueFormElms ) ) {
 				uniqueFormElms.push( elmName );
