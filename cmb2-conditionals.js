@@ -65,14 +65,14 @@ jQuery( document ).ready( function( $ ) {
 						currentFieldName = current.attr( 'name' ),
 						requiredValue    = current.data( 'conditional-value' ),
 						currentParent    = current.parents( '.cmb-row:first' ),
-						shouldShow       = false;
+						shouldShow       = false,
+						parentGroup      = $('[name="'+currentFieldName+'"]').parents('.cmb-repeat-group-wrap');
 
 					// Only check this dependant if we haven't done so before for this parent.
 					// We don't need to check ten times for one radio field with ten options,
 					// the conditionals are for the field, not the option.
 					if ( 'undefined' !== typeof currentFieldName && '' !== currentFieldName && $.inArray( currentFieldName, dependantsSeen ) < 0 ) {
 						dependantsSeen.push = currentFieldName;
-
 						if ( 'checkbox' === elm.attr( 'type' ) ) {
 							if ( 'undefined' === typeof requiredValue ) {
 								shouldShow = ( checkedValues.length > 0 );
@@ -108,6 +108,7 @@ jQuery( document ).ready( function( $ ) {
 
 						// If we're hiding the row, hide all dependants (and their dependants).
 						if ( false === shouldShow ) {
+							if(parentGroup.length > 0) parentGroup.hide();
 							CMB2ConditionalsRecursivelyHideDependants( currentFieldName, current, conditionContext );
 						}
 
@@ -118,6 +119,7 @@ jQuery( document ).ready( function( $ ) {
 							} else {
 								current.filter( ':checked' ).trigger( 'change' );
 							}
+							if(parentGroup.length > 0) parentGroup.show();
 						}
 					}
 				});
