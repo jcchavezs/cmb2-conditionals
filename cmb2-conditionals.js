@@ -62,7 +62,9 @@ jQuery( document ).ready( function( $ ) {
 				dependants.each( function( i, e ) {
 					var loopIndex        = 0,
 						current          = $( e ),
-						currentFieldName = current.attr( 'name' ),
+						// Since we may condition fields such as titles (that don't have an input with a `name` attribute), 
+					    	// fallback to their HTML `id` attribute, if they have one.
+						currentFieldName = current.attr( 'name' ) ? current.attr( 'name' ) : current.attr( 'id' ),
 						requiredValue    = current.data( 'conditional-value' ),
 						currentParent    = current.parents( '.cmb-row:first' ),
 						shouldShow       = false;
